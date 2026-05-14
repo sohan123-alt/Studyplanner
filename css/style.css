@@ -1,0 +1,293 @@
+/* ============================================================
+   AI Study Planner - Main Stylesheet
+   ============================================================ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f0f4f8;
+    color: #2d3748;
+    min-height: 100vh;
+}
+
+/* ─── Navbar ─────────────────────────────────────────────── */
+.navbar {
+    background: linear-gradient(135deg, #1a56a0, #2e86c1);
+    color: white;
+    padding: 0 24px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.navbar-brand { font-size: 1.2rem; font-weight: 700; color: white; text-decoration: none; }
+.navbar-brand span { color: #90cdf4; }
+.nav-links { display: flex; gap: 6px; align-items: center; }
+.nav-links a {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    transition: background 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,0.2); }
+.nav-links a.btn-logout {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* ─── Layout ─────────────────────────────────────────────── */
+.main-wrapper { max-width: 1100px; margin: 0 auto; padding: 28px 16px; }
+.page-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a56a0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #1a56a0;
+}
+
+/* ─── Cards ──────────────────────────────────────────────── */
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a56a0;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.card-title .icon { font-size: 1.3rem; }
+
+/* ─── Stats Grid ─────────────────────────────────────────── */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.stat-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    border-top: 4px solid #1a56a0;
+}
+.stat-card.green  { border-top-color: #27ae60; }
+.stat-card.orange { border-top-color: #e67e22; }
+.stat-card.red    { border-top-color: #e74c3c; }
+.stat-card.purple { border-top-color: #8e44ad; }
+.stat-num  { font-size: 2rem; font-weight: 800; color: #1a56a0; }
+.stat-card.green  .stat-num  { color: #27ae60; }
+.stat-card.orange .stat-num  { color: #e67e22; }
+.stat-card.red    .stat-num  { color: #e74c3c; }
+.stat-card.purple .stat-num  { color: #8e44ad; }
+.stat-label { font-size: 0.82rem; color: #718096; margin-top: 4px; font-weight: 600; }
+
+/* ─── Forms ──────────────────────────────────────────────── */
+.form-group { margin-bottom: 16px; }
+.form-group label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 5px;
+}
+.form-control {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.93rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: #f7fafc;
+}
+.form-control:focus {
+    border-color: #1a56a0;
+    box-shadow: 0 0 0 3px rgba(26,86,160,0.12);
+    background: white;
+}
+select.form-control { cursor: pointer; }
+textarea.form-control { resize: vertical; min-height: 100px; }
+
+/* ─── Buttons ────────────────────────────────────────────── */
+.btn {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.btn-primary { background: #1a56a0; color: white; }
+.btn-primary:hover { background: #154080; transform: translateY(-1px); }
+.btn-success { background: #27ae60; color: white; }
+.btn-success:hover { background: #219150; }
+.btn-danger  { background: #e74c3c; color: white; }
+.btn-danger:hover  { background: #c0392b; }
+.btn-warning { background: #e67e22; color: white; }
+.btn-warning:hover { background: #ca6f1e; }
+.btn-secondary { background: #718096; color: white; }
+.btn-sm { padding: 6px 14px; font-size: 0.82rem; }
+.btn-block { width: 100%; text-align: center; }
+
+/* ─── Tables ─────────────────────────────────────────────── */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th {
+    background: #1a56a0;
+    color: white;
+    padding: 11px 14px;
+    text-align: left;
+    font-size: 0.85rem;
+}
+td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; }
+tr:hover td { background: #f0f4f8; }
+tr:last-child td { border-bottom: none; }
+
+/* ─── Alerts ─────────────────────────────────────────────── */
+.alert {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.alert-success { background: #c6f6d5; color: #22543d; border-left: 4px solid #27ae60; }
+.alert-danger  { background: #fed7d7; color: #742a2a; border-left: 4px solid #e74c3c; }
+.alert-info    { background: #bee3f8; color: #2a4365; border-left: 4px solid #1a56a0; }
+.alert-warning { background: #fefcbf; color: #744210; border-left: 4px solid #e67e22; }
+
+/* ─── Badges ─────────────────────────────────────────────── */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.76rem;
+    font-weight: 700;
+}
+.badge-success  { background: #c6f6d5; color: #22543d; }
+.badge-danger   { background: #fed7d7; color: #742a2a; }
+.badge-warning  { background: #fefcbf; color: #744210; }
+.badge-info     { background: #bee3f8; color: #2a4365; }
+.badge-primary  { background: #ebf4ff; color: #1a56a0; }
+
+/* ─── Progress Bar ───────────────────────────────────────── */
+.progress-bar-wrap {
+    background: #e2e8f0;
+    border-radius: 20px;
+    height: 14px;
+    overflow: hidden;
+    margin-top: 6px;
+}
+.progress-bar {
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #1a56a0, #2e86c1);
+    transition: width 0.5s ease;
+}
+.progress-bar.green  { background: linear-gradient(90deg, #27ae60, #2ecc71); }
+.progress-bar.orange { background: linear-gradient(90deg, #e67e22, #f39c12); }
+.progress-bar.red    { background: linear-gradient(90deg, #e74c3c, #e91e63); }
+
+/* ─── Auth Pages ─────────────────────────────────────────── */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a56a0 0%, #2e86c1 50%, #1a56a0 100%);
+    padding: 20px;
+}
+.auth-box {
+    background: white;
+    padding: 36px 32px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+.auth-logo { text-align: center; margin-bottom: 24px; }
+.auth-logo h2 { font-size: 1.5rem; color: #1a56a0; font-weight: 800; }
+.auth-logo p { color: #718096; font-size: 0.88rem; margin-top: 4px; }
+
+/* ─── Two-column grid ────────────────────────────────────── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+/* ─── Subject item ───────────────────────────────────────── */
+.subject-item {
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #1a56a0;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+}
+.subject-item.weak    { border-left-color: #e74c3c; background: #fff5f5; }
+.subject-item.average { border-left-color: #e67e22; background: #fffaf0; }
+.subject-item.strong  { border-left-color: #27ae60; background: #f0fff4; }
+
+/* ─── Plan Day Card ──────────────────────────────────────── */
+.plan-day {
+    background: #f7fafc;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border-left: 4px solid #2e86c1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.plan-day .day-label { font-weight: 700; color: #1a56a0; font-size: 0.88rem; }
+.plan-day .day-task  { color: #4a5568; font-size: 0.9rem; }
+
+/* ─── Question card ──────────────────────────────────────── */
+.q-card {
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+}
+.q-card .q-num { font-weight: 800; color: #1a56a0; margin-right: 8px; }
+.q-meta { margin-top: 6px; font-size: 0.8rem; color: #718096; }
+
+/* ─── Footer ─────────────────────────────────────────────── */
+.footer {
+    text-align: center;
+    padding: 20px;
+    color: #a0aec0;
+    font-size: 0.82rem;
+    margin-top: 40px;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 700px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .navbar-brand { font-size: 1rem; }
+    .nav-links a { padding: 5px 8px; font-size: 0.8rem; }
+    .main-wrapper { padding: 16px 10px; }
+}
